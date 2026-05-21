@@ -56,6 +56,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware'
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -101,7 +102,7 @@ DATABASES = {
         "HOST": config("DB_HOST"),
         "USER": config("DB_USER"),
         "PASSWORD": config("DB_PASSWORD"),
-        "PORT": config("DB_PORT"),
+        "PORT": config("DB_PORT", default=5432),
     }
 }
 
@@ -141,6 +142,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
+STORAGE = {
+    "default":{
+        "BACKEND":"django.core.files.storage.FileSystemStorage"
+    },
+    "staticfiles":{
+        "BACKEND":"whitenoise.storage.CompressedStaticFilesStorage"
+    }
+}
 
 
 REST_FRAMEWORK = {
@@ -176,6 +187,9 @@ SIMPLE_JWT = {
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
+
+
+
 
 
 
