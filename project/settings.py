@@ -38,20 +38,26 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost,127.0.0.1').split(','
 # Application definition
 
 INSTALLED_APPS = [
+    "cloudinary_storage",
+    "cloudinary",
+
+    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    "cloudinary_storage",
-    "cloudinary",
     'django.contrib.staticfiles',
+
+
     # "app",
     "django_filters",
     "rest_framework",
     "rest_framework.authtoken",
     "rest_framework_simplejwt",
     "rest_framework_simplejwt.token_blacklist",
+
+
     "app.apps.MyAppConfig",
 ]
 
