@@ -143,6 +143,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"
+
+
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
@@ -154,6 +158,23 @@ STORAGES = {
         "BACKEND":"whitenoise.storage.CompressedStaticFilesStorage"
     }
 }
+
+
+STATICFILES_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
+DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
+
+
+
+CLOUDINARY_STORAGE = {
+    "CLOUD_NAME": config("CLOUD_NAME"),
+    "API_KEY": config("CLOUD_API_KEY"),
+    "API_SECRET": config("CLOUD_API_SECRET"),
+}
+
+
+
+
+
 
 
 REST_FRAMEWORK = {
@@ -187,16 +208,7 @@ SIMPLE_JWT = {
     "BLACKLIST_AFTER_ROTATION":True,
 }
 
-MEDIA_URL = "/media/"
-MEDIA_ROOT = BASE_DIR / "media"
 
-CLOUDINARY_STORAGE = {
-    "CLOUD_NAME": config("CLOUD_NAME"),
-    "API_KEY": config("CLOUD_API_KEY"),
-    "API_SECRET": config("CLOUD_API_SECRET"),
-}
-
-DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 
 
 
