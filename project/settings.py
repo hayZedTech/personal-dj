@@ -160,8 +160,8 @@ STORAGES = {
 }
 
 
-# STATICFILES_STORAGE = "whitenoise.storage.StaticFilesStorage"
-# DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
+STATICFILES_STORAGE = "whitenoise.storage.StaticFilesStorage"
+DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 
 
 
