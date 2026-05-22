@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    "cloudinary_storage",
+    "cloudinary",
     'django.contrib.staticfiles',
     # "app",
     "django_filters",
@@ -144,9 +146,9 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
-STORAGE = {
+STORAGES = {
     "default":{
-        "BACKEND":"django.core.files.storage.FileSystemStorage"
+        "BACKEND":"cloudinary_storage.storage.MediaCloudinaryStorage"
     },
     "staticfiles":{
         "BACKEND":"whitenoise.storage.CompressedStaticFilesStorage"
@@ -187,6 +189,14 @@ SIMPLE_JWT = {
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
+
+CLOUDINARY_STORAGE = {
+    "CLOUD_NAME": config("CLOUD_NAME"),
+    "API_KEY": config("CLOUD_API_KEY"),
+    "API_SECRET": config("CLOUD_API_SECRET"),
+}
+
+DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 
 
 
