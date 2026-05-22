@@ -162,6 +162,7 @@ STORAGES = {
 
 STATICFILES_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
+WHITE_MANIFEST_STRICT = False
 
 
 
