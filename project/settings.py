@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     "rest_framework.authtoken",
     "rest_framework_simplejwt",
     "rest_framework_simplejwt.token_blacklist",
+    "drf_spectacular",
 
 
     "app.apps.MyAppConfig",
@@ -203,7 +204,9 @@ REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES":[
         "rest_framework.authentication.TokenAuthentication",
         "rest_framework_simplejwt.authentication.JWTAuthentication"
-    ]
+    ],
+
+    "DEFAULT_SCHEMA_CLASS":"drf_spectacular.openapi.AutoSchema",
 }
 
 
@@ -216,6 +219,11 @@ SIMPLE_JWT = {
     "BLACKLIST_AFTER_ROTATION":True,
 }
 
+SPECTACULAR_SETTINGS={
+    "TITLE":"My Blog",
+    "DESCRIPTION":"API Documentation",
+    "VERSION":"1.0.0",
+}
 
 
 
